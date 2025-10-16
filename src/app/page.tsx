@@ -11,7 +11,7 @@ export default function Home() {
             jimin kim
           </h1>
           <h2 className="text-[28px] leading-none">
-            a full-stack developer bringing creativity and empathy to life :)
+            a full-stack developer bringing creativity & empathy to life :)
           </h2>
         </div>
         {/* row 2: ipa, current */}
@@ -31,12 +31,14 @@ export default function Home() {
         {/* project carousel */}
         <div className="flex flex-row justify-between">
           <ProjectCard
+            img="/icv/cover.png"
             title="Inner City Visions (Contract)"
             tags={["TypeScript", "Google Cloud Firestore", "0-to-1"]}
             description="transforming a non profit's manual workflows with a full-stack client management & data analysis platform"
             github="https://github.com/novaforgood/ICV"
           />
           <ProjectCard
+            img="/clubhouse/cover.png"
             title="Clubhouse"
             tags={["JavaScript", "Node.js", "Supabase"]}
             description="enhancing social connection at UCLA through a club discovery & rating platform for 1,200+ student orgs - built for students, by students!"
@@ -47,12 +49,14 @@ export default function Home() {
 
         <div className="flex flex-row justify-between">
           <ProjectCard
+            img="/blife/cover.png"
             title="UCLA Student Media"
             tags={["React", "Python Flask", "B2C"]}
-            description="redesigning BruinLife Photo Studio's internal and external platforms for a seamless, all-in-house experience"
+            description="redesigning BruinLife Photo Studio's internal & external platforms for a seamless, all-in-house experience"
             github=""
           />
           <ProjectCard
+            img="/meowmate/cover.png"
             title="MeowMate"
             tags={["React Native", "Mongo DB", "Google Gemini"]}
             description="reimagining cat adoption with a Tinder-like interface and AI-enhanced profiles to help cats find their purr-fect home"

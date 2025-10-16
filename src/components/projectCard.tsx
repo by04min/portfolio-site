@@ -10,6 +10,7 @@ function ProjectTag({ name }: { name: string }) {
 }
 
 type CardProps = {
+  img: string;
   tags: string[];
   title: string;
   description: string;
@@ -23,7 +24,13 @@ export default function ProjectCard(props: CardProps) {
   return (
     <div className="flex flex-col space-y-[20px] w-[550px]">
       {/* image here */}
-      <div className="bg-[#ECF1F7] w-[550px] h-[300px] rounded-[5px]" />
+      <Image
+        src={props.img}
+        alt="MeowMate"
+        width={550}
+        height={300}
+        className="rounded-[5px] w-[550px] h-[300px] object-cover"
+      />
 
       {/* tag carousel */}
       <div className="flex flex-row items-center justify-between">
