@@ -1,3 +1,6 @@
+import Link from "next/link";
+import Image from "next/image";
+
 function ProjectTag({ name }: { name: string }) {
   return (
     <div className="bg-[#D9E2EC] rounded-[20px] px-[16px] py-[4px] text-[16px]">
@@ -10,6 +13,8 @@ type CardProps = {
   tags: string[];
   title: string;
   description: string;
+  github: string;
+  liveSite?: string;
 };
 
 export default function ProjectCard(props: CardProps) {
@@ -21,10 +26,41 @@ export default function ProjectCard(props: CardProps) {
       <div className="bg-[#ECF1F7] w-[550px] h-[300px] rounded-[5px]" />
 
       {/* tag carousel */}
-      <div className="flex flex-row space-x-[12px]">
-        {tags.map((tag, index) => (
-          <ProjectTag key={index} name={tag} />
-        ))}
+      <div className="flex flex-row items-center justify-between">
+        <div className="flex flex-row space-x-[12px]">
+          {tags.map((tag, index) => (
+            <ProjectTag key={index} name={tag} />
+          ))}
+        </div>
+
+        <div className="flex flex-row space-x-[12px] items-center">
+          {props.github != "" ? (
+            <Link href={props.github} target="_blank" rel="noopener noreferrer">
+              <Image
+                src="/github-logo.png"
+                alt="GitHub"
+                width={24}
+                height={24}
+              />
+            </Link>
+          ) : (
+            <Image src="/locked.svg" alt="Locked" width={24} height={24} />
+          )}
+          {props.liveSite && (
+            <Link
+              href={props.liveSite}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/open-link.svg"
+                alt="GoToLink"
+                width={24}
+                height={24}
+              />
+            </Link>
+          )}
+        </div>
       </div>
 
       {/* project details */}
