@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Karla } from "next/font/google";
 import "./globals.css";
+import NavBar from "../components/navbar";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -24,10 +25,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${playfair.variable} ${karla.variable} antialiased`}
-      >
-        {children}
+      <body className={`${playfair.variable} ${karla.variable} antialiased`}>
+        <div className="flex flex-col min-h-screen">
+          <div className="mx-[250px] mt-[48px]">
+            <NavBar />
+          </div>
+          <main className="flex-1 mx-[250px] mt-[64px]">{children}</main>
+        </div>
       </body>
     </html>
   );
