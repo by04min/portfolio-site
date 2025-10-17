@@ -31,7 +31,7 @@ export default function RootLayout({
           <div className="mx-[250px] mt-[48px]">
             <NavBar />
           </div>
-          <main className="flex-1 mx-[250px] mt-[64px]">{children}</main>
+          <main className="flex-1 mx-[250px] mt-[72px]">{children}</main>
           <div className="mx-[250px] mb-[48px]">
             <Footer />
           </div>
