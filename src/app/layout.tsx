@@ -27,12 +27,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${playfair.variable} ${karla.variable} antialiased`}>
-        <div className="flex flex-col min-h-screen">
-          <div className="mx-[250px] mt-[48px]">
+        <div className="flex flex-col min-h-screen px-12 lg:px-[150px]">
+          <div className="mt-[48px]">
             <NavBar />
           </div>
-          <main className="flex-1 mx-[250px] mt-[72px]">{children}</main>
-          <div className="mx-[250px] mb-[48px]">
+          <main className="flex-1 mt-[72px]">{children}</main>
+          <div className="mb-[48px]">
             <Footer />
           </div>
         </div>
