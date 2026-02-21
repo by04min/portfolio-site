@@ -26,7 +26,7 @@ export default function Home() {
 
     <div className="space-y-[60px]"> 
       {/* selected works */}
-      <div className="flex flex-col space-y-[36px]">
+      <div className="flex flex-col space-y-[48px]">
         <h1 className="text-[24px] font-[font-serif]">Selected Works</h1>
 
         {/* project carousel — vertical stack on mobile, horizontal scroll on md+ */}
@@ -35,28 +35,28 @@ export default function Home() {
             <PreviewCard
               img="/icv/cover.png"
               title="Inner City Visions"
-              description="transforming a non profit's manual workflows with a full-stack client management & data analysis platform"
+              description="transformed a non profit's manual workflows with a full-stack client management system, complete with service outcome analytics"
               github="https://github.com/novaforgood/ICV"
-              tags={["0-to-1", "web", "non-profit"]}
+              tags={["0-to-1", "full stack", "non-profit"]}
             />
           </div>
           <div className="w-full lg:w-[550px] lg:flex-shrink-0 snap-center">
             <PreviewCard
               img="/clubhouse/cover.png"
               title="Clubhouse"
-              description="enhancing social connection at UCLA through a club discovery & rating platform for 1,200+ student orgs - built for students, by students!"
+              description="a UCLA-exclusive club discovery & rating platform featuring 1,200+ student orgs - built for students, by students!"
               github="https://github.com/kittenluv1/clubhouse"
               liveSite="https://www.clubhouseucla.com/"
-              tags={["web", "100+ users"]}
+              tags={["0-to-1", "full stack", "100+ users"]}
             />
           </div>
           <div className="w-full lg:w-[550px] lg:flex-shrink-0 snap-center">
             <PreviewCard
               img="/blife/cover.png"
               title="UCLA Student Media"
-              description="redesigning BruinLife Photo Studio's internal & external platforms for a seamless, all-in-house experience"
+              description="reinvented BruinLife Photo Studio's internal & external portals for a seamless, all-in-house experience"
               github=""
-              tags={["B2C", "web", "student org"]}
+              tags={["B2C", "full stack"]}
             />
           </div>
         </ScrollCarousel>
