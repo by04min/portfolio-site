@@ -1,4 +1,5 @@
-import { PreviewCard } from "@/components/homeCards";
+import { PreviewCard } from "@/components/projectCards";
+import { ScrollCarousel } from "@/components/scrollCarousel";
 
 export default function Home() {
   return (
@@ -29,8 +30,8 @@ export default function Home() {
         <h1 className="text-[24px] font-[font-serif]">Selected Works</h1>
 
         {/* project carousel — vertical stack on mobile, horizontal scroll on md+ */}
-        <div className="flex flex-col gap-[40px] lg:flex-row lg:overflow-x-auto lg:pb-4 lg:-mx-[1px] lg:scroll-smooth lg:snap-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div className="w-full lg:w-[550px] lg:flex-shrink-0 snap-start">
+        <ScrollCarousel>
+          <div className="w-full lg:w-[550px] lg:flex-shrink-0 snap-center">
             <PreviewCard
               img="/icv/cover.png"
               title="Inner City Visions"
@@ -39,26 +40,26 @@ export default function Home() {
               tags={["0-to-1", "web", "non-profit"]}
             />
           </div>
-          <div className="w-full lg:w-[550px] lg:flex-shrink-0 snap-start">
+          <div className="w-full lg:w-[550px] lg:flex-shrink-0 snap-center">
             <PreviewCard
               img="/clubhouse/cover.png"
               title="Clubhouse"
               description="enhancing social connection at UCLA through a club discovery & rating platform for 1,200+ student orgs - built for students, by students!"
               github="https://github.com/kittenluv1/clubhouse"
               liveSite="https://www.clubhouseucla.com/"
-              tags={["0-to-1", "web", "non-profit"]}
+              tags={["web", "100+ users"]}
             />
           </div>
-          <div className="w-full lg:w-[550px] lg:flex-shrink-0 snap-start">
+          <div className="w-full lg:w-[550px] lg:flex-shrink-0 snap-center">
             <PreviewCard
               img="/blife/cover.png"
               title="UCLA Student Media"
               description="redesigning BruinLife Photo Studio's internal & external platforms for a seamless, all-in-house experience"
               github=""
-              tags={["0-to-1", "web", "non-profit"]}
+              tags={["B2C", "web", "student org"]}
             />
           </div>
-        </div>
+        </ScrollCarousel>
       </div>
 
       {/* experience */}

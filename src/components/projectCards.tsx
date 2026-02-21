@@ -4,8 +4,8 @@ import Image from "next/image";
 export function TagCarousel(props: { tags: string[] }) {
   return (
     <div className="flex flex-row space-x-[12px] items-center">
-      {props.tags.map((tag) => (
-        <h2 className="sm:text-[12px]md:text-[16px] bg-[#DCE6F3] rounded-[16px] px-[12px] py-[4px]">{tag}</h2>
+      {props.tags.map((tag, index) => (
+        <h2 key={`${tag}-${index}`} className="sm:text-[12px]md:text-[16px] bg-gray-100 rounded-[16px] px-[12px] py-[4px]">{tag}</h2>
       ))}
     </div>
   );
@@ -42,17 +42,31 @@ export function PreviewCard(props: CardProps) {
         </h1>
         <div className="flex flex-row space-x-[12px] items-center">
           {props.github != "" ? (
-            <Link href={props.github} target="_blank" rel="noopener noreferrer">
+            <Link
+              href={props.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center rounded-full bg-gray-100 px-2 py-2 pr-2 hover:pr-3 transition-all duration-500 ease-in-out"
+            >
               <Image src="/github.svg" alt="GitHub" width={24} height={24} />
+              <span className="overflow-hidden max-w-0 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap ml-0 group-hover:ml-2 text-[14px] text-gray-700">
+                view repo
+              </span>
             </Link>
           ) : (
-            <Image src="/locked.svg" alt="Locked" width={24} height={24} />
+            <div className="group flex items-center rounded-full bg-gray-100 px-2 py-2 pr-2 hover:pr-3 transition-all duration-500 ease-in-out cursor-default">
+              <Image src="/locked.svg" alt="Locked" width={24} height={24} />
+              <span className="overflow-hidden max-w-0 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap ml-0 group-hover:ml-2 text-[14px] text-gray-700">
+                protected
+              </span>
+            </div>
           )}
           {props.liveSite && (
             <Link
               href={props.liveSite}
               target="_blank"
               rel="noopener noreferrer"
+              className="group flex items-center rounded-full bg-gray-100 px-2 py-2 pr-2 hover:pr-3 transition-all duration-500 ease-in-out"
             >
               <Image
                 src="/open-link.svg"
@@ -60,6 +74,9 @@ export function PreviewCard(props: CardProps) {
                 width={24}
                 height={24}
               />
+              <span className="overflow-hidden max-w-0 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap ml-0 group-hover:ml-2 text-[14px] text-gray-700">
+                live site
+              </span>
             </Link>
           )}
         </div>
@@ -104,17 +121,27 @@ export function SelectedCard(props: CardProps) {
                 href={props.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="group flex items-center rounded-full bg-[#DCE6F3] hover:bg-[#c5d9ed] px-2 py-2 pr-2 hover:pr-3 transition-all duration-500 ease-in-out"
               >
                 <Image src="/github.svg" alt="GitHub" width={24} height={24} />
+                <span className="overflow-hidden max-w-0 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap ml-0 group-hover:ml-2 text-[14px] text-gray-700">
+                  view repo
+                </span>
               </Link>
             ) : (
-              <Image src="/locked.svg" alt="Locked" width={24} height={24} />
+              <div className="group flex items-center rounded-full bg-gray-100 px-2 py-2 pr-2 hover:pr-3 transition-all duration-500 ease-in-out cursor-default">
+                <Image src="/locked.svg" alt="Locked" width={24} height={24} />
+                <span className="overflow-hidden max-w-0 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap ml-0 group-hover:ml-2 text-[14px] text-gray-700">
+                  protected
+                </span>
+              </div>
             )}
             {props.liveSite && (
               <Link
                 href={props.liveSite}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="group flex items-center rounded-full bg-[#DCE6F3] hover:bg-[#c5d9ed] px-2 py-2 pr-2 hover:pr-3 transition-all duration-500 ease-in-out"
               >
                 <Image
                   src="/open-link.svg"
@@ -122,6 +149,9 @@ export function SelectedCard(props: CardProps) {
                   width={24}
                   height={24}
                 />
+                <span className="overflow-hidden max-w-0 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap ml-0 group-hover:ml-2 text-[14px] text-gray-700">
+                  live site
+                </span>
               </Link>
             )}
           </div>

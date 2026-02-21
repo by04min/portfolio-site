@@ -1,4 +1,4 @@
-import { SelectedCard, PreviewCard } from "@/components/homeCards";
+import { SelectedCard, PreviewCard } from "@/components/projectCards";
 
 export default function WorkPage() {
   return (
@@ -63,7 +63,7 @@ export default function WorkPage() {
             title="MeowMate"
             description="reimagining cat adoption with a Tinder-like interface and AI-enhanced profiles to help cats find their purr-fect home"
             github="https://github.com/by04min/MeowMateRepo"
-            
+
           />
           <PreviewCard
             img="/stairmasters/cover.png"
