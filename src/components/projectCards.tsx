@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { IconLink } from "./iconLink";
 
 export function TagCarousel(props: { tags: string[] }) {
   return (
@@ -18,6 +19,7 @@ type CardProps = {
   github: string;
   liveSite?: string;
   tags?: string[];
+  caseHref?: string;
 };
 
 type ExplorationCardProps = Pick<CardProps, "img" | "title" | "description">;
@@ -33,7 +35,7 @@ export function PreviewCard(props: CardProps) {
         alt="MeowMate"
         width={550}
         height={300}
-        className="rounded-[5px] w-full h-auto aspect-[550/300] object-cover lg:w-[550px] lg:h-[300px]"
+        className="rounded-[12px] w-full h-auto aspect-[550/300] object-cover lg:w-[550px] lg:h-[300px]"
       />
 
       {/* project details */}
@@ -43,43 +45,21 @@ export function PreviewCard(props: CardProps) {
           {props.title}
         </h1>
         <div className="flex flex-row space-x-[12px] items-center">
-          {props.github != "" ? (
-            <Link
-              href={props.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center rounded-full bg-gray-100 px-2 py-2 pr-2 hover:pr-3 transition-all duration-500 ease-in-out"
-            >
-              <Image src="/github.svg" alt="GitHub" width={24} height={24} />
-              <span className="overflow-hidden max-w-0 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap ml-0 group-hover:ml-2 text-[14px] text-gray-700">
-                view repo
-              </span>
-            </Link>
-          ) : (
-            <div className="group flex items-center rounded-full bg-gray-100 px-2 py-2 pr-2 hover:pr-3 transition-all duration-500 ease-in-out cursor-default">
-              <Image src="/locked.svg" alt="Locked" width={24} height={24} />
-              <span className="overflow-hidden max-w-0 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap ml-0 group-hover:ml-2 text-[14px] text-gray-700">
-                protected
-              </span>
-            </div>
-          )}
+          <IconLink
+            href={props.github || undefined}
+            iconSrc={props.github ? "/github.svg" : "/locked.svg"}
+            iconAlt={props.github ? "GitHub" : "Locked"}
+            label={props.github ? "view repo" : "protected"}
+            hoverTrigger="self"
+          />
           {props.liveSite && (
-            <Link
+            <IconLink
               href={props.liveSite}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center rounded-full bg-gray-100 px-2 py-2 pr-2 hover:pr-3 transition-all duration-500 ease-in-out"
-            >
-              <Image
-                src="/open-link.svg"
-                alt="GoToLink"
-                width={24}
-                height={24}
-              />
-              <span className="overflow-hidden max-w-0 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap ml-0 group-hover:ml-2 text-[14px] text-gray-700">
-                live site
-              </span>
-            </Link>
+              iconSrc="/open-link.svg"
+              iconAlt="GoToLink"
+              label="live site"
+              hoverTrigger="self"
+            />
           )}
         </div>
         </div>
@@ -95,60 +75,50 @@ export function PreviewCard(props: CardProps) {
 export function SelectedCard(props: CardProps) {
 
   return (
-    <div className="flex flex-col w-full space-y-[24px]">
-      {/* image here */}
-      <Image
-        src={props.img}
-        alt={props.title}
-        width={900}
-        height={500}
-        className="rounded-[5px] w-full h-auto aspect-[9/5] object-cover max-w-[900px]"
-      />
+    <div className={`flex flex-col w-full space-y-[24px] ${props.caseHref ? "group/card" : ""}`}>
+      {/* image here - wrapped in Link only when caseHref provided to avoid nested <a> */}
+      {props.caseHref ? (
+        <Link href={props.caseHref} className="block">
+          <Image
+            src={props.img}
+            alt={props.title}
+            width={900}
+            height={500}
+            className="rounded-[12px] w-full h-auto aspect-[9/5] object-cover max-w-[900px] transition-transform duration-300 ease-in-out origin-center group-hover/card:scale-[0.99]"
+          />
+        </Link>
+      ) : (
+        <Image
+          src={props.img}
+          alt={props.title}
+          width={900}
+          height={500}
+          className="rounded-[12px] w-full h-auto aspect-[9/5] object-cover max-w-[900px]"
+        />
+      )}
 
       <div className="flex flex-col space-y-[12px] w-full max-w-[900px]">
-        {/* title and links on same row */}
+        {/* title and links on same row - buttons expand on card hover when caseHref */}
         <div className="flex flex-row items-center justify-between">
           <h1 className="text-[22px] leading-none">
             {props.title}
           </h1>
           <div className="flex flex-row space-x-[12px] items-center">
-            {props.github != "" ? (
-              <Link
-                href={props.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center rounded-full bg-gray-100 hover:bg-gray-200 px-2 py-2 pr-2 hover:pr-3 transition-all duration-500 ease-in-out"
-              >
-                <Image src="/github.svg" alt="GitHub" width={24} height={24} />
-                <span className="overflow-hidden max-w-0 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap ml-0 group-hover:ml-2 text-[14px] text-gray-700">
-                  view repo
-                </span>
-              </Link>
-            ) : (
-              <div className="group flex items-center rounded-full bg-gray-100 px-2 py-2 pr-2 hover:pr-3 transition-all duration-500 ease-in-out cursor-default">
-                <Image src="/locked.svg" alt="Locked" width={24} height={24} />
-                <span className="overflow-hidden max-w-0 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap ml-0 group-hover:ml-2 text-[14px] text-gray-700">
-                  protected
-                </span>
-              </div>
-            )}
+            <IconLink
+              href={props.github || undefined}
+              iconSrc={props.github ? "/github.svg" : "/locked.svg"}
+              iconAlt={props.github ? "GitHub" : "Locked"}
+              label={props.github ? "view repo" : "protected"}
+              hoverTrigger={props.caseHref ? "parent" : "self"}
+            />
             {props.liveSite && (
-              <Link
+              <IconLink
                 href={props.liveSite}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center rounded-full bg-gray-100 hover:bg-gray-200 px-2 py-2 pr-2 hover:pr-3 transition-all duration-500 ease-in-out"
-              >
-                <Image
-                  src="/open-link.svg"
-                  alt="GoToLink"
-                  width={24}
-                  height={24}
-                />
-                <span className="overflow-hidden max-w-0 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap ml-0 group-hover:ml-2 text-[14px] text-gray-700">
-                  live site
-                </span>
-              </Link>
+                iconSrc="/open-link.svg"
+                iconAlt="GoToLink"
+                label="live site"
+                hoverTrigger={props.caseHref ? "parent" : "self"}
+              />
             )}
           </div>
         </div>
@@ -167,7 +137,7 @@ export function ExplorationCard(props: ExplorationCardProps) {
         alt={props.title}
         width={550}
         height={300}
-        className="rounded-[5px] w-full h-auto aspect-[550/300] object-cover max-w-[550px]"
+        className="rounded-[12px] w-full h-auto aspect-[550/300] object-cover max-w-[550px]"
       />
 
       <div className="flex flex-col space-y-[12px] w-full max-w-[550px]">

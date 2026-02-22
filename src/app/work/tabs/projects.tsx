@@ -6,7 +6,7 @@ export function ProjectsTab() {
       <div className="flex flex-col space-y-[8px]">
         <h1 className="text-[24px] font-[font-serif]">Projects</h1>
         <h3 className="text-[16px]">
-          writing the world's stories with code
+          exploring the world's stories through code
         </h3>
       </div>
       <SelectedCard

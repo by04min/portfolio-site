@@ -53,27 +53,45 @@ export function ScrollCarousel({ children }: { children: React.ReactNode }) {
     }, 1500);
   };
 
+  // when user takes control: clamp scroll to first set so they only see one set
+  const handleUserTakeControl = () => {
+    const el = scrollRef.current;
+    if (el) {
+      const halfWidth = el.scrollWidth / 2;
+      if (el.scrollLeft >= halfWidth) {
+        el.scrollLeft = el.scrollLeft - halfWidth;
+      }
+    }
+    setIsPaused(true);
+  };
+
+  // show duplicate only when auto-scrolling (lg breakpoint); hide on md/sm or when user manually scrolls
+  const showDuplicate = !isPaused;
+
   return (
     <div
       className="flex flex-col gap-[40px] lg:flex-row lg:overflow-x-auto lg:pb-4 lg:-mx-[1px] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       ref={scrollRef}
-      // pause scroll on mouse enter and resume on mouse leave
-      onMouseEnter={() => setIsPaused(true)}
+      onMouseEnter={handleUserTakeControl}
       onMouseLeave={() => setIsPaused(false)}
-      onTouchStart={() => setIsPaused(true)}
-      // pause scroll on touch end and resume after 1.5 seconds
+      onTouchStart={handleUserTakeControl}
       onTouchEnd={handleTouchEnd}
     >
-      {/* render children twice for inifinite scroll effect! */}
+      {/* first set — always visible */}
       {childArray.map((child, i) =>
         React.isValidElement(child)
           ? React.cloneElement(child, { key: `a-${i}` })
           : child
       )}
-      {childArray.map((child, i) =>
-        React.isValidElement(child)
-          ? React.cloneElement(child, { key: `b-${i}` })
-          : child
+      {/* second set — only on lg when auto-scrolling; hidden on md/sm or when user manually scrolls */}
+      {showDuplicate && (
+        <div className="hidden lg:contents">
+          {childArray.map((child, i) =>
+            React.isValidElement(child)
+              ? React.cloneElement(child, { key: `b-${i}` })
+              : child
+          )}
+        </div>
       )}
     </div>
   );

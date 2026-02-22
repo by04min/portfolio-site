@@ -3,9 +3,9 @@ export function ExplorationTab() {
   return (
     <div className="flex flex-col space-y-[36px]">
       <div className="flex flex-col space-y-[8px]">
-        <h1 className="text-[24px] font-[font-serif]">Exploration</h1>
+        <h1 className="text-[24px] font-[font-serif]">Playground</h1>
         <h3 className="text-[16px]">
-          a playground for my curiosity & passion
+          a space for my curiosities & passions
         </h3>
       </div>
       <div className="flex flex-col lg:flex-row gap-[36px]">
