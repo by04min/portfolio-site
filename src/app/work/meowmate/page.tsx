@@ -1,97 +1,41 @@
-"use client";
 import { IconLink } from "@/components/iconLink";
-import { useRouter } from "next/navigation";
+import { CaseStudyLayout } from "@/components/work/caseStudyLayout";
+import { WorkMetaGrid, WorkMetaItem } from "@/components/work/workMetaGrid";
+
 export default function MeowmatePage() {
-    const router = useRouter();
-    
-    return (
-        <div className="flex flex-col mt-[48px] mb-[250px] gap-y-[80px] md:gap-y-[120px]">
-            <div className="space-y-[16px]">
-            <button onClick={() => {
-                router.push("/work?tab=projects");
-            }}>
-                Back
-            </button>
-            {/* image here */}
-            <div className="w-full aspect-[16/9] rounded-[12px] bg-neutral-200 dark:bg-neutral-800" />
-            </div>
-            {/* title, description & stack */}
-            <div className="flex flex-col gap-y-[48px]">
-            <div className="flex flex-col space-y-[16px] text-left">
-                <h1 className="font-[font-serif] text-[48px] leading-none">
-                    MeowMate
-                </h1>
-                <h3 className="text-[20px]">reimagined cat adoption with a Tinder-like interface and AI-enhanced profiles to help cats find their purr-fect home</h3>
-                <div className="flex flex-row space-x-[12px] items-center">
-                    <IconLink
-                        href="https://github.com/by04min/MeowMateRepo"
-                        iconSrc="/github.svg"
-                        iconAlt="GitHub"
-                        label="view repo"
-                        hoverTrigger="self"
-                    />
-                </div>
-            </div>
-
-
-            <div className="flex flex-col gap-y-[48px]">
-            <div className="flex flex-col gap-y-[20px] sm:gap-y-[36px]">
-            <div className="border-t border-neutral-300 dark:border-neutral-300" />
-                <div className="grid grid-cols-1 min-[560px]:grid-cols-2 lg:grid-cols-3 gap-x-[48px] gap-y-[20px] sm:gap-y-[48px] text-left">
-                    <div>
-                        <h1 className="text-[20px] text-[#354E6B] flex items-center justify-start gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#354E6B] shrink-0" />
-                            Role
-                        </h1>
-                        <h3 className="text-[16px]">
-                            Developer Lead, Frontend Developer
-                        </h3>
-                    </div>
-                    <div>
-                        <h1 className="text-[20px] text-[#354E6B] flex items-center justify-start gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#354E6B] shrink-0" />
-                            Timeline
-                        </h1>
-                        <h3 className="text-[16px]">
-                            Winter 2025 - Spring 2026
-                        </h3>
-                    </div>
-                    <div>
-                        <h1 className="text-[20px] text-[#354E6B] flex items-center justify-start gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#354E6B] shrink-0" />
-                            Team
-                        </h1>
-                        <h3 className="text-[16px]">
-                            4 Developers, 5 Designers, 2 Leads
-                        </h3>
-                    </div>
-                    <div>
-                        <h1 className="text-[20px] text-[#354E6B] flex items-center justify-start gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#354E6B] shrink-0" />
-                            Frontend
-                        </h1>
-                        <p className="text-[16px]">React Native, CSS, Expo </p>
-                    </div>
-                    <div>
-                        <h1 className="text-[20px] text-[#354E6B] flex items-center justify-start gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#354E6B] shrink-0" />
-                            Backend
-                        </h1>
-                        <p className="text-[16px]">Node.js, Supabase, <br />Google Gemini (1.5 Flash)</p>
-                    </div>
-                    <div>
-                        <h1 className="text-[20px] text-[#354E6B] flex items-center justify-start gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#354E6B] shrink-0" />
-                            Tools
-                        </h1>
-                        <p className="text-[16px]">Git, GitHub</p>
-                    </div>
-                </div>
-                
-            <div className="border-t border-neutral-300 dark:border-neutral-300" />
-            </div>
-            </div>
-            </div>
-        </div>
-    )
+  return (
+    <CaseStudyLayout
+      backTab="projects"
+      title="MeowMate"
+      description="reimagined cat adoption with a Tinder-like interface and AI-enhanced profiles to help cats find their purr-fect home"
+      actions={
+        <IconLink
+          href="https://github.com/by04min/MeowMateRepo"
+          iconSrc="/github.svg"
+          iconAlt="GitHub"
+          label="view repo"
+          hoverTrigger="self"
+        />
+      }
+      meta={
+        <WorkMetaGrid>
+          <WorkMetaItem label="Role">
+            Developer Lead, Frontend Developer
+          </WorkMetaItem>
+          <WorkMetaItem label="Timeline">
+            Winter 2025 - Spring 2026
+          </WorkMetaItem>
+          <WorkMetaItem label="Team">
+            4 Developers, 5 Designers, 2 Leads
+          </WorkMetaItem>
+          <WorkMetaItem label="Frontend">React Native, CSS, Expo </WorkMetaItem>
+          <WorkMetaItem label="Backend">
+            Node.js, Supabase, <br />
+            Google Gemini (1.5 Flash)
+          </WorkMetaItem>
+          <WorkMetaItem label="Tools">Git, GitHub</WorkMetaItem>
+        </WorkMetaGrid>
+      }
+    />
+  );
 }
