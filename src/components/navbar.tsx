@@ -65,7 +65,7 @@ export default function NavBar() {
           className="lg:text-[20px] md:text-[18px] sm:text-[16px] hover:text-gray-300"
           onClick={() => router.push("/")}
         >
-          Logo
+          JK
         </button>
 
         {/* Desktop nav - same row as Logo when hamburger not visible */}

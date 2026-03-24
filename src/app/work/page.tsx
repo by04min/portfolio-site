@@ -3,10 +3,17 @@
 import { SelectedWorksTab } from "./tabs/selectedWorks";
 import { ProjectsTab } from "./tabs/projects";
 import { ExplorationTab } from "./tabs/exploration";
-import { useState } from "react";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 
 export default function WorkPage() {
-  const [selectedTab, setSelectedTab] = useState("selectedWorks");
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const selectedTab = searchParams.get("tab") || "selectedWorks";
+
+  const handleTabClick = (tab: string) => {
+    router.replace(`${pathname}?tab=${tab}`);
+  };
 
   return (
     <div className="flex flex-col mt-[48px] mb-[250px] space-y-[120px]">
@@ -25,7 +32,7 @@ export default function WorkPage() {
         {/* nav: row with dividers on smaller than md, column on md+ */}
         <div className="flex flex-row md:flex-col items-center md:items-stretch gap-x-4 md:gap-x-0 md:space-y-[16px]">
           <button
-            onClick={() => setSelectedTab("selectedWorks")}
+            onClick={() => handleTabClick("selectedWorks")}
             className="flex items-center gap-2 text-[16px] hover:text-gray-300 transition-colors text-left"
           >
             {selectedTab === "selectedWorks" && (
@@ -37,7 +44,7 @@ export default function WorkPage() {
           </button>
           <div className="h-4 w-px bg-gray-300 shrink-0 md:hidden" />
           <button
-            onClick={() => setSelectedTab("projects")}
+            onClick={() => handleTabClick("projects")}
             className="flex items-center gap-2 text-[16px] hover:text-gray-300 transition-colors text-left"
           >
             {selectedTab === "projects" && (
@@ -49,7 +56,7 @@ export default function WorkPage() {
           </button>
           <div className="h-4 w-px bg-gray-300 shrink-0 md:hidden" />
           <button
-            onClick={() => setSelectedTab("exploration")}
+            onClick={() => handleTabClick("exploration")}
             className="flex items-center gap-2 text-[16px] hover:text-gray-300 transition-colors text-left"
           >
             {selectedTab === "exploration" && (

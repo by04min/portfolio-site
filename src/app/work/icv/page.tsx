@@ -1,30 +1,35 @@
+"use client";
 import { IconLink } from "@/components/iconLink";
+import { useRouter } from "next/navigation";
 
-export default function ClubhousePage() {
+export default function ICVPage() {
+    const router = useRouter();
     return (
         <div className="flex flex-col mt-[48px] mb-[250px] gap-y-[80px] md:gap-y-[120px]">
+
+            <div className="space-y-[16px]">
+            <button onClick={() => {
+                router.push("/work?tab=selectedWorks");
+            }}>
+                Back
+            </button>
+            {/* image here */}
             <div className="w-full aspect-[16/9] rounded-[12px] bg-neutral-200 dark:bg-neutral-800" />
-            
+            </div>
+
             {/* title, description & stack */}
             <div className="flex flex-col gap-y-[48px]">
             <div className="flex flex-col space-y-[16px] text-left">
                 <h1 className="font-[font-serif] text-[48px] leading-none">
-                    Clubhouse
+                    Inner City Visions
                 </h1>
-                <h3 className="text-[20px]">a UCLA-exclusive club discovery & rating app<br className="hidden md:block" /> featuring 1,200+ student orgs. built for students, by students!</h3>
+                <h3 className="text-[20px]">reinvented manual workflows with a centralized client management system, <br className="hidden md:block" />complete with service outcome analytics</h3>
                 <div className="flex flex-row space-x-[12px] items-center">
                     <IconLink
-                        href="https://github.com/kittenluv1/clubhouse"
+                        href="https://github.com/novaforgood/ICV"
                         iconSrc="/github.svg"
                         iconAlt="GitHub"
                         label="view repo"
-                        hoverTrigger="self"
-                    />
-                    <IconLink
-                        href="https://www.clubhouseucla.com/"
-                        iconSrc="/open-link.svg"
-                        iconAlt="GoToLink"
-                        label="live site"
                         hoverTrigger="self"
                     />
                 </div>
@@ -41,7 +46,7 @@ export default function ClubhousePage() {
                             Role
                         </h1>
                         <h3 className="text-[16px]">
-                            Full Stack Developer
+                            Developer Lead, Full Stack Developer
                         </h3>
                     </div>
                     <div>
@@ -50,7 +55,7 @@ export default function ClubhousePage() {
                             Timeline
                         </h1>
                         <h3 className="text-[16px]">
-                            Spring - Fall 2025
+                            Fall 2024 - Winter 2026
                         </h3>
                     </div>
                     <div>
@@ -59,7 +64,7 @@ export default function ClubhousePage() {
                             Team
                         </h1>
                         <h3 className="text-[16px]">
-                            4 Developers, 3 Designers, <br />4 Leads, 3 Marketers
+                            5 Developers, 3 Designers, 2 Leads
                         </h3>
                     </div>
                     <div>
@@ -67,21 +72,21 @@ export default function ClubhousePage() {
                             <span className="w-1.5 h-1.5 rounded-full bg-[#354E6B] shrink-0" />
                             Frontend
                         </h1>
-                        <p className="text-[16px]">Next.js, React, JavaScript, <br />Tailwind CSS, Framer Motion</p>
+                        <p className="text-[16px]">Next.js, React, TypeScript, <br />Tailwind CSS, Zustand</p>
                     </div>
                     <div>
                         <h1 className="text-[20px] text-[#354E6B] flex items-center justify-start gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#354E6B] shrink-0" />
                             Backend
                         </h1>
-                        <p className="text-[16px]">Node.js, Supabase (PostgreSQL)<br />UCLA SOLE API, Resend API</p>
+                        <p className="text-[16px]">Node.js, Firebase <br />Firestore (NoSQL), Resend API</p>
                     </div>
                     <div>
                         <h1 className="text-[20px] text-[#354E6B] flex items-center justify-start gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#354E6B] shrink-0" />
                             Tools & Deployment
                         </h1>
-                        <p className="text-[16px]">Git, GitHub, Vercel</p>
+                        <p className="text-[16px]">Git, GitHub, <br />GitHub Actions, Vercel</p>
                     </div>
                 </div>
                 

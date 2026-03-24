@@ -12,13 +12,15 @@ export function ProjectsTab() {
       <SelectedCard
         img="/meowmate/cover.png"
         title="MeowMate"
-        description="reimagining cat adoption with a Tinder-like interface and AI-enhanced profiles to help cats find their purr-fect home"
+        caseHref="/work/meowmate"
+        description="reimagined cat adoption with a Tinder-like interface and AI-enhanced profiles to help cats find their purr-fect home"
         github="https://github.com/by04min/MeowMateRepo"
       />
       <SelectedCard
         img="/stairmasters/cover.png"
         title="Stairmasters"
-        description="providing stair-free accessible routes across the UCLA campus"
+        caseHref="/work/stairmasters"
+        description="take stair-free accessible routes anywhere on the UCLA campus"
         github="https://github.com/AnthonyChui/NovaStairMasters"
       />
     </div>

@@ -12,7 +12,7 @@ export function SelectedWorksTab() {
       <SelectedCard
         img="/icv/cover.png"
         title="Inner City Visions"
-        caseHref="/work/case/icv"
+        caseHref="/work/icv"
         description={
           <>
             transformed a non profit's manual workflows with a full-stack client management system,
@@ -25,7 +25,7 @@ export function SelectedWorksTab() {
       <SelectedCard
         img="/clubhouse/cover.png"
         title="Clubhouse"
-        caseHref="/work/case/clubhouse"
+        caseHref="/work/clubhouse"
         description="a UCLA-exclusive club discovery & rating app featuring 1,200+ student orgs. built for students, by students!"
         github="https://github.com/kittenluv1/clubhouse"
         liveSite="https://www.clubhouseucla.com/"
@@ -33,7 +33,7 @@ export function SelectedWorksTab() {
       <SelectedCard
         img="/blife/cover.png"
         title="UCLA Student Media"
-        caseHref="/work/case/bruinlife"
+        caseHref="/work/bruinlife"
         description="reinvented BruinLife Photo Studio's internal & external portals for a seamless, all-in-house experience"
         github=""
       />
