@@ -11,7 +11,11 @@ export default function NavBar() {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       // if menu is open and click is outside of navbar, close it
-      if (isOpen && navRef.current && !navRef.current.contains(event.target as Node)) {
+      if (
+        isOpen &&
+        navRef.current &&
+        !navRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
@@ -27,7 +31,10 @@ export default function NavBar() {
     <>
       <button
         className="lg:text-[20px] md:text-[18px] sm:text-[16px] hover:text-gray-300"
-        onClick={closeMenu}
+        onClick={() => {
+          router.push("/about");
+          closeMenu();
+        }}
       >
         About
       </button>
@@ -69,9 +76,7 @@ export default function NavBar() {
         </button>
 
         {/* Desktop nav - same row as Logo when hamburger not visible */}
-        <div className="hidden md:flex flex-row space-x-[36px]">
-          {navLinks}
-        </div>
+        <div className="hidden md:flex flex-row space-x-[36px]">{navLinks}</div>
 
         {/* Hamburger button - visible on md and below, same row as Logo */}
         <button
@@ -79,22 +84,22 @@ export default function NavBar() {
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
-        <span
-          className={`block w-4 h-0.5 bg-current transition-all duration-300 ${
-            isOpen ? "rotate-45 translate-y-1.5" : ""
-          }`}
-        />
-        <span
-          className={`block w-4 h-0.5 bg-current transition-all duration-300 ${
-            isOpen ? "opacity-0" : ""
-          }`}
-        />
-        <span
-          className={`block w-4 h-0.5 bg-current transition-all duration-300 ${
-            isOpen ? "-rotate-45 -translate-y-1.5" : ""
-          }`}
-        />
-      </button>
+          <span
+            className={`block w-4 h-0.5 bg-current transition-all duration-300 ${
+              isOpen ? "rotate-45 translate-y-1.5" : ""
+            }`}
+          />
+          <span
+            className={`block w-4 h-0.5 bg-current transition-all duration-300 ${
+              isOpen ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`block w-4 h-0.5 bg-current transition-all duration-300 ${
+              isOpen ? "-rotate-45 -translate-y-1.5" : ""
+            }`}
+          />
+        </button>
       </div>
 
       {/* Mobile overlay - visible when menu is open */}
