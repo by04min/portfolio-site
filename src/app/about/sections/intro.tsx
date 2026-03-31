@@ -6,11 +6,12 @@ export default function IntroSection() {
       id="intro"
       className={`${SECTION_SCROLL_CLASS} flex flex-col space-y-[24px]`}
     >
+      <h3 className="text-[24px]">I&apos;m Jimin</h3>
       <p className="text-[16px]">
         I&apos;m a junior at UCLA, studying Computer Science & Linguistics with
         a Data Science Engineering minor. I care about building accessible,
-        impact-driven products that scale — not just technically, but for all
-        communities.
+        impact-driven products that scale — not just technically, but across
+        vast communities and lived experiences.
       </p>
       <p className="text-[16px]">
         I grew up with Korean immigrant parents in a small Bay Area community,
@@ -32,22 +33,22 @@ export default function IntroSection() {
         everyone. This is what drives me as a developer.
       </p>
       <p className="text-[16px]">
-        At UCLA, I&apos;ve had the opportunity to explore applications of
-        tech beyond what I&apos;ve seen growing up, and I&apos;m inspired by how
+        At UCLA, I&apos;ve had the opportunity to explore applications of tech
+        beyond what I&apos;ve seen growing up, and I&apos;m inspired by how
         software can create or improve opportunities for anyone, anywhere.
         I&apos;ve ideated and shipped products for non-profits and student
         communities, each with different stories, workflows, and challenges.
         Every project has reinforced my belief that good engineering isn&apos;t
         just about performance or scalability. It&apos;s about listening - to
-        peers, mentors, designers, product designers, and most importantly, to
+        peers, mentors, designers, product managers, and most importantly, to
         the people we&apos;re building for.
       </p>
       <p className="text-[16px]">
         Today, I&apos;m a software engineer who speaks through empathy and code,
-        and I&apos;m on a mission to close the gap between what technology can do and who gets
-        to use it. When I&apos;m not on my laptop, music on blast, you can find
-        me taking walks around campus (& logging them on Strava), saving my next at-home recipe, or
-        rewatching my favorite shows for the 100th time.
+        and I&apos;m on a mission to close the gap between what technology can
+        do and who gets to use it. When I&apos;m not on my laptop, music on
+        blast, you can find me taking walks around campus, saving my next
+        at-home recipe, or rewatching my favorite shows for the 100th time.
       </p>
     </section>
   );

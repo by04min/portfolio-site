@@ -1,12 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
-import { IconLink } from "./iconLink";
+import { IconLink } from "./icons/iconLink";
 
 export function TagCarousel(props: { tags: string[] }) {
   return (
     <div className="flex flex-row space-x-[12px] items-center">
       {props.tags.map((tag, index) => (
-        <h2 key={`${tag}-${index}`} className="sm:text-[12px]md:text-[16px] bg-gray-100 rounded-[16px] px-[12px] py-[4px]">{tag}</h2>
+        <h2
+          key={`${tag}-${index}`}
+          className="sm:text-[12px]md:text-[16px] bg-gray-100 rounded-[16px] px-[12px] py-[4px]"
+        >
+          {tag}
+        </h2>
       ))}
     </div>
   );
@@ -26,7 +31,6 @@ type ExplorationCardProps = Pick<CardProps, "img" | "title" | "description">;
 
 // home page: vertical layout cards for selected works
 export function PreviewCard(props: CardProps) {
-
   return (
     <div className="flex flex-col space-y-[20px] w-full lg:w-[550px]">
       {/* image here */}
@@ -41,27 +45,25 @@ export function PreviewCard(props: CardProps) {
       {/* project details */}
       <div className="flex flex-col space-y-[12px]">
         <div className="flex flex-row items-center justify-between">
-        <h1 className="text-[22px] leading-none">
-          {props.title}
-        </h1>
-        <div className="flex flex-row space-x-[12px] items-center">
-          <IconLink
-            href={props.github || undefined}
-            iconSrc={props.github ? "/github.svg" : "/locked.svg"}
-            iconAlt={props.github ? "GitHub" : "Locked"}
-            label={props.github ? "view repo" : "protected"}
-            hoverTrigger="self"
-          />
-          {props.liveSite && (
+          <h1 className="text-[22px] leading-none">{props.title}</h1>
+          <div className="flex flex-row space-x-[12px] items-center">
             <IconLink
-              href={props.liveSite}
-              iconSrc="/open-link.svg"
-              iconAlt="GoToLink"
-              label="live site"
+              href={props.github || undefined}
+              iconSrc={props.github ? "/github.svg" : "/locked.svg"}
+              iconAlt={props.github ? "GitHub" : "Locked"}
+              label={props.github ? "view repo" : "protected"}
               hoverTrigger="self"
             />
-          )}
-        </div>
+            {props.liveSite && (
+              <IconLink
+                href={props.liveSite}
+                iconSrc="/open-link.svg"
+                iconAlt="GoToLink"
+                label="live site"
+                hoverTrigger="self"
+              />
+            )}
+          </div>
         </div>
 
         <h2 className="text-[16px]">{props.description}</h2>
@@ -73,9 +75,10 @@ export function PreviewCard(props: CardProps) {
 
 // work: vertical layout cards for selected works
 export function SelectedCard(props: CardProps) {
-
   return (
-    <div className={`flex flex-col w-full space-y-[24px] ${props.caseHref ? "group/card" : ""}`}>
+    <div
+      className={`flex flex-col w-full space-y-[24px] ${props.caseHref ? "group/card" : ""}`}
+    >
       {/* image here - wrapped in Link only when caseHref provided to avoid nested <a> */}
       {props.caseHref ? (
         <Link href={props.caseHref} className="block">
@@ -100,9 +103,7 @@ export function SelectedCard(props: CardProps) {
       <div className="flex flex-col space-y-[12px] w-full max-w-[900px]">
         {/* title and links on same row - buttons expand on card hover when caseHref */}
         <div className="flex flex-row items-center justify-between">
-          <h1 className="text-[22px] leading-none">
-            {props.title}
-          </h1>
+          <h1 className="text-[22px] leading-none">{props.title}</h1>
           <div className="flex flex-row space-x-[12px] items-center">
             <IconLink
               href={props.github || undefined}
@@ -141,9 +142,7 @@ export function ExplorationCard(props: ExplorationCardProps) {
       />
 
       <div className="flex flex-col space-y-[12px] w-full max-w-[550px]">
-        <h1 className="text-[22px] leading-none">
-          {props.title}
-        </h1>
+        <h1 className="text-[22px] leading-none">{props.title}</h1>
         <h2 className="text-[16px]">{props.description}</h2>
       </div>
     </div>

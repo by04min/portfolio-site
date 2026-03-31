@@ -1,4 +1,4 @@
-import { IconLink } from "@/components/iconLink";
+import { IconLink } from "@/components/icons/iconLink";
 import { CaseStudyLayout } from "@/components/work/caseStudyLayout";
 import { WorkMetaGrid, WorkMetaItem } from "@/components/work/workMetaGrid";
 
